@@ -121,11 +121,11 @@ path = dijkstra(G, vertices[0], vertices[1])
 output = "{0}\n{1} {2}\n{3}\n{4}".format(
     diameter, vertices[0]+1, vertices[1]+1,  len(path), " ".join(str(x+1) for x in path))
 
-print(output)
+print output
 
 output_file = open(args.outputname, "w+")
 output_file.write(output)
 
 trueEnd = time.time()
 trueTime = trueEnd - trueStart
-print("Time to run: {:03.2f} seconds".format(trueTime))
+print "Time to run: {:03.2f} seconds".format(trueTime)
