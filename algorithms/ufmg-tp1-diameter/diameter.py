@@ -24,7 +24,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
 G = None
-nV = edges = 0
+nV = nE = 0
 INF = 999999
 
 with open(args.filename, "r") as file:
@@ -68,7 +68,7 @@ def diameter_vertices(G):
 def min_distance(dist, visited_vertices):
     min = INF
 
-    for v in range(len(dist)):
+    for v in range(nV):
         if dist[v] < min and visited_vertices[v] == False:
             min = dist[v]
             min_index = v
@@ -90,17 +90,17 @@ def get_path(parent, j, path=[]):
 
 # complexidade: O(V^2) onde V é o número de vértices
 def dijkstra(G, source, target):
-    dist = [INF] * len(G)
-    parent = [-1] * len(G)
-    visited_vertices = [False] * len(G)
+    dist = [INF] * nV
+    parent = [-1] * nV
+    visited_vertices = [False] * nV
     dist[source] = 0
 
-    for _ in range(len(G)):
+    for _ in range(nV):
         u = min_distance(dist, visited_vertices)
 
         visited_vertices[u] = True
 
-        for i in range(len(G)):
+        for i in range(nV):
             if G[u][i] and visited_vertices[i] == False and dist[i] > dist[u] + G[u][i]:
                 dist[i] = dist[u] + G[u][i]
                 parent[i] = u
