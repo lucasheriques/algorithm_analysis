@@ -1,2 +1,2 @@
 #!/bin/bash
-pypy diameter_python2.py -i $1 -o $2
+pypy3 diameter.py -i $1 -o $2
