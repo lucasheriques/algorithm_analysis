@@ -1,9 +1,6 @@
-import time
 import argparse
 import os
 from argparse import ArgumentParser
-
-trueStart = time.time()
 
 
 def validate_file(f):
@@ -125,7 +122,3 @@ print(output)
 
 output_file = open(args.outputname, "w+")
 output_file.write(output)
-
-trueEnd = time.time()
-trueTime = trueEnd - trueStart
-print("Time to run: {:03.2f} seconds".format(trueTime))
