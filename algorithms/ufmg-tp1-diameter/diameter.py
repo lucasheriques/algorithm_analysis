@@ -6,22 +6,12 @@ from argparse import ArgumentParser
 trueStart = time.time()
 
 
-def validate_file(f):
-    if not os.path.exists(f):
-        # Argparse uses the ArgumentTypeError to give a rejection message like:
-        # error: argument input: x does not exist
-        raise argparse.ArgumentTypeError("{0} does not exist".format(f))
-    return f
-
-
-if __name__ == "__main__":
-
-    parser = ArgumentParser(description="Read file form Command line.")
-    parser.add_argument("-i", "--input", dest="filename", required=True, type=validate_file,
-                        help="input file", metavar="FILE")
-    parser.add_argument("-o", "--output", dest="outputname",
-                        required=True, help="output file")
-    args = parser.parse_args()
+parser = ArgumentParser(description="Read file form Command line.")
+parser.add_argument("-i", "--input", dest="filename", required=True,
+                    help="input file", metavar="FILE")
+parser.add_argument("-o", "--output", dest="outputname",
+                    required=True, help="output file")
+args = parser.parse_args()
 
 G = None
 nV = nE = 0
